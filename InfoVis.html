@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<!-- reference: https://bl.ocks.org/mbostock/899711 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+  <link rel="shortcut icon" href="about:blank">
+      <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="liquidFillGauge.js" language="JavaScript"></script>
+  <style>
+
+  html, body, #map {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .locations, .locations svg {
+    position: absolute;
+  }
+
+  .locations svg {
+    width: 100px;
+    height: 100px;
+    padding-right: 100px;
+    font: 10px sans-serif;
+  }
+
+  .locations rect {
+    fill: blue;
+    stroke: none;
+  }
+      .county-border {
+          fill: none;
+          stroke: white;
+          pointer-events: none;
+      }
+
+      .axis text {
+          font: 10px sans-serif;
+      }
+
+      .axis line, .axis path {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+      }
+      
+  .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; color: white}
+
+</style>
+</head>
+<body>
+    
+
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://raw.github.com/fryn/html5slider/master/html5slider.js"></script>
+
+        <div id="map"></div>
+
+            <script>
+
+                // global varibles
+                var map;
+    var layer;
+
+// Initializing Google Map
+      function initMap() {
+                    map = new google.maps.Map(d3.select("#map").node(), {
+                        zoom: 12,
+                        center: new google.maps.LatLng(41.15846, -73.25628)
+                    });
+                // Reading data from the json
+                d3.json("output.json", function (error, data) {
+              if (error) throw error;
+              // creating the Google OverlayView
+              var overlay = new google.maps.OverlayView();
+
+              //BRAD'S JSON PARSE
+              data = d3.entries(data);
+
+              //temperature range parse
+              data.forEach(function (d) {
+                  var spl = d.value.temperature.Range;
+                  var split = spl.split("F");
+                  var getTempRange1 = split[0];
+                  var getTempRange2 = split[1];
+                  getTempRange1 = getTempRange1.replace(" ", "");
+                  getTempRange1 = parseFloat(getTempRange1);
+                  getTempRange2 = getTempRange2.split("-")[1].replace(" ", "").replace(" ", "");
+                  getTempRange2 = parseFloat(getTempRange2);
+                  var parsedTempRange = [getTempRange1, getTempRange2];
+                  d.value.temperature.Range = parsedTempRange;
+
+                  var parseMedian = parseFloat(d.value.temperature.Median);
+                  d.value.temperature.Median = parseMedian;
+              });
+
+              //precipitation range parse
+              data.forEach(function (d) {
+                  var spl = d.value.precipitation.Range;
+                  var split = spl.split("in");
+                  var getPrecipRange1 = split[0];
+                  var getPrecipRange2 = split[1];
+                  getPrecipRange1 = getPrecipRange1.replace(" ", "");
+                  getPrecipRange1 = parseFloat(getPrecipRange1);
+                  getPrecipRange2 = getPrecipRange2.split("-")[1].replace(" ", "").replace(" ", "");
+                  getPrecipRange2 = parseFloat(getPrecipRange2);
+                  var parsedPrecipRange = [getPrecipRange1, getPrecipRange2];
+                  d.value.precipitation.Range = parsedPrecipRange;
+
+                  var parseMedian = parseFloat(d.value.precipitation.Median);
+                  d.value.precipitation.Median = parseMedian;
+              });
+
+              //END BRAD'S JSON PARSE
+
+              // Add the container when the overlay is added to the map.
+              overlay.onAdd = function () {
+                    layer = d3.select(this.getPanes().overlayLayer).append("div")
+                        .attr("class", "locations");
+                };
+
+
+
+              // drawing markers. Each marker is a svg element
+              overlay.draw = function () {
+                  var projection = this.getProjection(),
+                      padding = 50;
+
+                  var marker = layer.selectAll("svg")
+                      .data(data)
+                      .each(transform) // update existing markers using transform function
+                      .enter()
+                      .append("svg")
+                      .each(transform)
+                      .attr("class", "marker")
+                        .attr("id", (function(d){ return d.key}))
+                    .attr("width", 100)
+                    .attr("height",100);
+
+
+                  data.forEach(function(d){
+                      var config1 = liquidFillGaugeDefaultSettings();
+                      if(d.value.precipitation.Confidence == 1){
+                    config1.waveColor = '#000000';
+                //  window.alert(d.value.precipitation.Confidence);
+                }else if(d.value.precipitation.Confidence > .40){
+                    config1.waveColor = 'yellow';
+                }else{
+                    config1.waveColor = 'white';
+                }
+                      loadLiquidFillGauge(d.key, d.value.temperature.Range[0],config1);
+              });
+
+                  // Add a label.
+                  marker.append("text")
+                      .attr("x", padding - 15)
+                      .attr("y", padding + 30)
+                      .attr("dy", ".31em")
+                      .text(function (d) { return d.key ; });
+
+                  function transform(d) {
+                    d = new google.maps.LatLng(d.value.precipitation.Latitude, d.value.precipitation.Longitude);
+                      d = projection.fromLatLngToDivPixel(d);
+                      return d3.select(this)
+                          .style("left", (d.x - padding) + "px")
+                          .style("top", (d.y - padding) + "px");
+                  }
+              };
+
+                //Jacks Label Attempt
+                var width = 800, height = 400;
+
+                var value;
+
+                var color = d3.scale.linear().domain([1, 101]).range(["#F7FBFF", "#08306B"]);
+
+                var svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
+
+                d3.json("ok-countiesStudentRatio.json", function (error, ok) {
+                    var counties = topojson.feature(ok, ok.objects.counties);
+
+                    projection.scale(1).translate([0, 0]);
+
+                    var b = path.bounds(counties), s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height), t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+                    projection.scale(s).translate(t);
+
+                    svg.selectAll("path").data(counties.features.filter(function (d) {
+                        return d.id;
+                    })).enter().append("path").attr("class", "county").attr("d", path).style("fill", function (d) {
+                        return color(d.properties.eightyseven);
+                    }).append("title").text(function (d) {
+                        return d.properties.county + " County";
+                    });
+
+                    svg.append("path").datum(topojson.mesh(ok, ok.objects.counties, function (a, b) {
+                        return a !== b;
+                    })).attr("class", "county-border").attr("d", path);
+
+                });
+                //end choropleth
+
+                //key
+                var w = 140, h = 400;
+
+                var key = d3.select("body").append("svg").attr("id", "key").attr("width", w).attr("height", h).attr("transform","translate(500,-800)");
+
+                var legend = key.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
+
+                legend.append("stop").attr("offset", "0%").attr("stop-color", "#08306B").attr("stop-opacity", 1);
+
+                legend.append("stop").attr("offset", "100%").attr("stop-color", "#F7FBFF").attr("stop-opacity", 1);
+
+                key.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(0,10)");
+
+                var y = d3.scale.linear().range([300, 0]).domain([0, 100]);
+
+                var yAxis = d3.svg.axis().scale(y).orient("right");
+
+                key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text")
+                    .attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("Confidence");
+                //end key
+
+                d3.select(self.frameElement).style("height", height + "px");
+
+
+              // Bind overlay with the map
+              overlay.setMap(map);
+          });
+      }
+
+
+
+
+    </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD63QFzx4JKBEwhEQqAkXIkK62JeP3SFAA&callback=initMap" async defer></script>
+
+  
+</body>>

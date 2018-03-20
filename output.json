@@ -1,0 +1,416 @@
+{
+    "Bridgeport": {
+        "precipitation": {
+            "City": "Bridgeport", 
+            "Confidence": 0.3, 
+            "Latitude": 41.19, 
+            "Longitude": -73.2, 
+            "Median": "0.003", 
+            "Range": "0.0 in - 0.012 in"
+        }, 
+        "temperature": {
+            "City": "Bridgeport", 
+            "Confidence": 0.97, 
+            "Latitude": 41.19, 
+            "Longitude": -73.2, 
+            "Median": "43.62", 
+            "Range": "42.15 F - 45.28 F"
+        }
+    }, 
+    "Danbury": {
+        "precipitation": {
+            "City": "Danbury", 
+            "Confidence": 0.5, 
+            "Latitude": 41.39, 
+            "Longitude": -73.45, 
+            "Median": "0.003", 
+            "Range": "0.0 in - 0.019 in"
+        }, 
+        "temperature": {
+            "City": "Danbury", 
+            "Confidence": 0.98, 
+            "Latitude": 41.39, 
+            "Longitude": -73.45, 
+            "Median": "42.82", 
+            "Range": "41.58 F - 44.18 F"
+        }
+    }, 
+    "Fairfield": {
+        "precipitation": {
+            "City": "Fairfield", 
+            "Confidence": 1.0, 
+            "Latitude": 41.14, 
+            "Longitude": -73.26, 
+            "Median": "0.003", 
+            "Range": "0.0 in - 0.011 in"
+        }, 
+        "temperature": {
+            "City": "Fairfield", 
+            "Confidence": 0.97, 
+            "Latitude": 41.14, 
+            "Longitude": -73.26, 
+            "Median": "44.07", 
+            "Range": "42.58 F - 45.69 F"
+        }
+    }, 
+    "Hartford": {
+        "precipitation": {
+            "City": "Hartford", 
+            "Confidence": 1.0, 
+            "Latitude": 41.76, 
+            "Longitude": -72.69, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.009 in"
+        }, 
+        "temperature": {
+            "City": "Hartford", 
+            "Confidence": 0.99, 
+            "Latitude": 41.76, 
+            "Longitude": -72.69, 
+            "Median": "39.53", 
+            "Range": "38.27 F - 40.83 F"
+        }
+    }, 
+    "Mansfield": {
+        "precipitation": {
+            "City": "Mansfield", 
+            "Confidence": 1.0, 
+            "Latitude": 41.79, 
+            "Longitude": -72.23, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.005 in"
+        }, 
+        "temperature": {
+            "City": "Mansfield", 
+            "Confidence": 0.98, 
+            "Latitude": 41.79, 
+            "Longitude": -72.23, 
+            "Median": "37.74", 
+            "Range": "36.12 F - 39.54 F"
+        }
+    }, 
+    "Middletown": {
+        "precipitation": {
+            "City": "Middletown", 
+            "Confidence": 1.0, 
+            "Latitude": 41.56, 
+            "Longitude": -72.65, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.007 in"
+        }, 
+        "temperature": {
+            "City": "Middletown", 
+            "Confidence": 0.99, 
+            "Latitude": 41.56, 
+            "Longitude": -72.65, 
+            "Median": "40.84", 
+            "Range": "39.36 F - 42.14 F"
+        }
+    }, 
+    "Montville": {
+        "precipitation": {
+            "City": "Montville", 
+            "Confidence": 1.0, 
+            "Latitude": 41.46, 
+            "Longitude": -72.16, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.003 in"
+        }, 
+        "temperature": {
+            "City": "Montville", 
+            "Confidence": 0.96, 
+            "Latitude": 41.46, 
+            "Longitude": -72.16, 
+            "Median": "40.37", 
+            "Range": "38.63 F - 42.34 F"
+        }
+    }, 
+    "New_Britain": {
+        "precipitation": {
+            "City": "New Britain", 
+            "Confidence": 1.0, 
+            "Latitude": 41.66, 
+            "Longitude": -72.78, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.01 in"
+        }, 
+        "temperature": {
+            "City": "New Britain", 
+            "Confidence": 1.0, 
+            "Latitude": 41.66, 
+            "Longitude": -72.78, 
+            "Median": "40.0", 
+            "Range": "38.72 F - 41.3 F"
+        }
+    }, 
+    "New_Haven": {
+        "precipitation": {
+            "City": "New Haven", 
+            "Confidence": 1.0, 
+            "Latitude": 41.31, 
+            "Longitude": -72.93, 
+            "Median": "0.013", 
+            "Range": "0.003 in - 0.029 in"
+        }, 
+        "temperature": {
+            "City": "New Haven", 
+            "Confidence": 0.97, 
+            "Latitude": 41.31, 
+            "Longitude": -72.93, 
+            "Median": "42.09", 
+            "Range": "40.52 F - 43.6 F"
+        }
+    }, 
+    "New_London": {
+        "precipitation": {
+            "City": "New London", 
+            "Confidence": 1.0, 
+            "Latitude": 41.36, 
+            "Longitude": -72.1, 
+            "Median": "0.001", 
+            "Range": "0.0 in - 0.003 in"
+        }, 
+        "temperature": {
+            "City": "New London", 
+            "Confidence": 0.97, 
+            "Latitude": 41.36, 
+            "Longitude": -72.1, 
+            "Median": "40.43", 
+            "Range": "39.05 F - 42.42 F"
+        }
+    }, 
+    "New_Milford": {
+        "precipitation": {
+            "City": "New Milford", 
+            "Confidence": 1.0, 
+            "Latitude": 41.58, 
+            "Longitude": -73.41, 
+            "Median": "0.003", 
+            "Range": "0.0 in - 0.021 in"
+        }, 
+        "temperature": {
+            "City": "New Milford", 
+            "Confidence": 0.99, 
+            "Latitude": 41.58, 
+            "Longitude": -73.41, 
+            "Median": "41.59", 
+            "Range": "40.38 F - 42.69 F"
+        }
+    }, 
+    "Norwalk": {
+        "precipitation": {
+            "City": "Norwalk", 
+            "Confidence": 1.0, 
+            "Latitude": 41.12, 
+            "Longitude": -73.41, 
+            "Median": "0.004", 
+            "Range": "0.0 in - 0.014 in"
+        }, 
+        "temperature": {
+            "City": "Norwalk", 
+            "Confidence": 0.97, 
+            "Latitude": 41.12, 
+            "Longitude": -73.41, 
+            "Median": "44.68", 
+            "Range": "43.27 F - 46.32 F"
+        }
+    }, 
+    "Norwich": {
+        "precipitation": {
+            "City": "Norwich", 
+            "Confidence": 1.0, 
+            "Latitude": 41.52, 
+            "Longitude": -72.08, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.003 in"
+        }, 
+        "temperature": {
+            "City": "Norwich", 
+            "Confidence": 0.95, 
+            "Latitude": 41.52, 
+            "Longitude": -72.08, 
+            "Median": "39.61", 
+            "Range": "37.82 F - 41.73 F"
+        }
+    }, 
+    "Old_Saybrook": {
+        "precipitation": {
+            "City": "Old Saybrook", 
+            "Confidence": 1.0, 
+            "Latitude": 41.3, 
+            "Longitude": -72.38, 
+            "Median": "0.001", 
+            "Range": "0.0 in - 0.004 in"
+        }, 
+        "temperature": {
+            "City": "Old Saybrook", 
+            "Confidence": 0.97, 
+            "Latitude": 41.3, 
+            "Longitude": -72.38, 
+            "Median": "41.97", 
+            "Range": "40.55 F - 43.79 F"
+        }
+    }, 
+    "Planfield": {
+        "precipitation": {
+            "City": "Planfield", 
+            "Confidence": 1.0, 
+            "Latitude": 41.68, 
+            "Longitude": -71.92, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.003 in"
+        }, 
+        "temperature": {
+            "City": "Planfield", 
+            "Confidence": 0.98, 
+            "Latitude": 41.68, 
+            "Longitude": -71.92, 
+            "Median": "38.3", 
+            "Range": "36.98 F - 40.38 F"
+        }
+    }, 
+    "Putnam": {
+        "precipitation": {
+            "City": "Putnam", 
+            "Confidence": 1.0, 
+            "Latitude": 41.9, 
+            "Longitude": -71.87, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.004 in"
+        }, 
+        "temperature": {
+            "City": "Putnam", 
+            "Confidence": 0.99, 
+            "Latitude": 41.9, 
+            "Longitude": -71.87, 
+            "Median": "37.04", 
+            "Range": "35.48 F - 38.71 F"
+        }
+    }, 
+    "Salem": {
+        "precipitation": {
+            "City": "Putnam", 
+            "Confidence": 1.0, 
+            "Latitude": 41.49, 
+            "Longitude": -72.28, 
+            "Median": "0.003", 
+            "Range": "0.0 in - 0.019 in"
+        }, 
+        "temperature": {
+            "City": "Putnam", 
+            "Confidence": 0.97, 
+            "Latitude": 41.49, 
+            "Longitude": -72.28, 
+            "Median": "42.07", 
+            "Range": "40.09 F - 44.35 F"
+        }
+    }, 
+    "Salisbury": {
+        "precipitation": {
+            "City": "Salisbury", 
+            "Confidence": 1.0, 
+            "Latitude": 41.98, 
+            "Longitude": -73.42, 
+            "Median": "0.002", 
+            "Range": "0.0 in - 0.02 in"
+        }, 
+        "temperature": {
+            "City": "Salisbury", 
+            "Confidence": 1.0, 
+            "Latitude": 41.98, 
+            "Longitude": -73.42, 
+            "Median": "40.24", 
+            "Range": "38.88 F - 41.45 F"
+        }
+    }, 
+    "Torrington": {
+        "precipitation": {
+            "City": "Torrington", 
+            "Confidence": 1.0, 
+            "Latitude": 41.8, 
+            "Longitude": -73.12, 
+            "Median": "0.002", 
+            "Range": "0.0 in - 0.017 in"
+        }, 
+        "temperature": {
+            "City": "Torrington", 
+            "Confidence": 1.0, 
+            "Latitude": 41.8, 
+            "Longitude": -73.12, 
+            "Median": "40.44", 
+            "Range": "39.17 F - 41.82 F"
+        }
+    }, 
+    "Waterbury": {
+        "precipitation": {
+            "City": "Waterbury", 
+            "Confidence": 1.0, 
+            "Latitude": 41.56, 
+            "Longitude": -73.1, 
+            "Median": "0.001", 
+            "Range": "0.0 in - 0.015 in"
+        }, 
+        "temperature": {
+            "City": "Waterbury", 
+            "Confidence": 0.99, 
+            "Latitude": 41.56, 
+            "Longitude": -73.1, 
+            "Median": "41.58", 
+            "Range": "40.38 F - 42.78 F"
+        }
+    }, 
+    "Westport": {
+        "precipitation": {
+            "City": "Westport", 
+            "Confidence": 1.0, 
+            "Latitude": 41.14, 
+            "Longitude": -73.36, 
+            "Median": "0.003", 
+            "Range": "0.0 in - 0.014 in"
+        }, 
+        "temperature": {
+            "City": "Westport", 
+            "Confidence": 0.97, 
+            "Latitude": 41.14, 
+            "Longitude": -73.36, 
+            "Median": "44.39", 
+            "Range": "42.96 F - 46.01 F"
+        }
+    }, 
+    "Windham": {
+        "precipitation": {
+            "City": "Windham", 
+            "Confidence": 1.0, 
+            "Latitude": 41.7, 
+            "Longitude": -72.16, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.004 in"
+        }, 
+        "temperature": {
+            "City": "Windham", 
+            "Confidence": 0.97, 
+            "Latitude": 41.7, 
+            "Longitude": -72.16, 
+            "Median": "38.23", 
+            "Range": "36.63 F - 40.04 F"
+        }
+    }, 
+    "Windsor_Locks": {
+        "precipitation": {
+            "City": "Windsor Locks", 
+            "Confidence": 1.0, 
+            "Latitude": 41.92, 
+            "Longitude": -72.65, 
+            "Median": "0.0", 
+            "Range": "0.0 in - 0.009 in"
+        }, 
+        "temperature": {
+            "City": "Windsor Locks", 
+            "Confidence": 0.98, 
+            "Latitude": 41.92, 
+            "Longitude": -72.65, 
+            "Median": "39.32", 
+            "Range": "37.75 F - 40.87 F"
+        }
+    }
+}

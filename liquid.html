@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+    <script src="liquidFillGauge.js" language="JavaScript"></script>
+    <style>
+        .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+    </style>
+</head>
+<body>
+<script language="JavaScript">
+     
+    // Reading data from the json
+          d3.json("output.json", function (error, data) {
+              if (error) throw error;
+
+
+
+              //BRAD'S JSON PARSE
+              data = d3.entries(data);
+              
+              //temperature range parse
+              data.forEach(function (d) {
+                  var spl = d.value.temperature.Range;
+                  var split = spl.split("F");
+                  var getTempRange1 = split[0];
+                  var getTempRange2 = split[1];
+                  getTempRange1 = getTempRange1.replace(" ", "");
+                  getTempRange1 = parseFloat(getTempRange1);
+                  getTempRange2 = getTempRange2.split("-")[1].replace(" ", "").replace(" ", "");
+                  getTempRange2 = parseFloat(getTempRange2);
+                  var parsedTempRange = [getTempRange1, getTempRange2];
+                  d.value.temperature.Range = parsedTempRange;
+
+                  var parseMedian = parseFloat(d.value.temperature.Median);
+                  d.value.temperature.Median = parseMedian;
+              });
+
+              //precipitation range parse
+              data.forEach(function (d) {
+                  var spl = d.value.precipitation.Range;
+                  var split = spl.split("in");
+                  var getPrecipRange1 = split[0];
+                  var getPrecipRange2 = split[1];
+                  getPrecipRange1 = getPrecipRange1.replace(" ", "");
+                  getPrecipRange1 = parseFloat(getPrecipRange1);
+                  getPrecipRange2 = getPrecipRange2.split("-")[1].replace(" ", "").replace(" ", "");
+                  getPrecipRange2 = parseFloat(getPrecipRange2);
+                  var parsedPrecipRange = [getPrecipRange1, getPrecipRange2];
+                  d.value.precipitation.Range = parsedPrecipRange;
+
+                  var parseMedian = parseFloat(d.value.precipitation.Median);
+                  d.value.precipitation.Median = parseMedian;
+              });
+
+              //END BRAD'S JSON PARSE
+              
+              d3.select("body").selectAll("svg")
+                .data(data)
+                .enter()
+                .append("svg")
+                    .attr("width", 100)
+                    .attr("height", 100)
+                    .attr("id", (function(d){ return d.key}));
+                  
+              data.forEach(function(d){
+                  loadLiquidFillGauge(d.key, d.value.temperature.Range[0]);
+              });
+
+          });
+        
+    
+      
+            
+                
+
+
+
+    
+    function NewValue(){
+        if(Math.random() > .5){
+            return Math.round(Math.random()*100);
+        } else {
+            return (Math.random()*100).toFixed(1);
+        }
+    }
+</script>
+    <script>    
+    //loadLiquidFillGauge("fillgauge", 55);
+   // loadLiquidFillGauge("Danbury", 55);
+
+    </script>
+</body>
+</html>
